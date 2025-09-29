@@ -15,11 +15,8 @@ function BudgetCharts({ mode = 'both' }) {
         const values = items.map(i => i.budget);
         const colors = ['#ffcd56','#ff6384','#36a2eb','#fd6b19','#4bc0c0','#9966ff','#c9cbcf'];
 
-  // we don't need local state for the chart data, Chart.js and D3 will render directly
 
-        // Chart.js pie chart (direct Chart.js usage)
         if (pieRef.current) {
-          // destroy previous instance if exists
           if (pieRef.current._chartInstance) {
             try { pieRef.current._chartInstance.destroy(); } catch (e) {}
           }
@@ -32,13 +29,11 @@ function BudgetCharts({ mode = 'both' }) {
           pieRef.current._chartInstance = chartInstance;
         }
 
-        // D3 bar chart
         const container = d3Ref.current;
         d3.select(container).selectAll('*').remove();
-        // margins for axes
         const margin = { top: 10, right: 10, bottom: 40, left: 50 };
         const totalWidth = 500;
-        const totalHeight = 260; // slightly smaller so it fits the card
+        const totalHeight = 260; 
         const width = totalWidth - margin.left - margin.right;
         const height = totalHeight - margin.top - margin.bottom;
 
@@ -76,8 +71,7 @@ function BudgetCharts({ mode = 'both' }) {
     <div className="budget-charts">
       <h2>Budget Charts</h2>
 
-      {/* mode controls removed: parent decides which chart to show
-          mode: 'pie' | 'bar' | 'both' */}
+    
 
       <div className={`chart-container pie ${mode==='pie' || mode==='both' ? 'large' : ''} ${mode==='bar' && mode!=='both' ? 'hidden' : ''}`}>
         <canvas ref={pieRef} aria-label="Budget Pie Chart" role="img" />
