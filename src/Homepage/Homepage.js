@@ -1,4 +1,5 @@
 import React from "react";
+import BudgetCharts from '../Charts/BudgetCharts';
 
 function HomePage() {
   return (
@@ -31,21 +32,15 @@ function HomePage() {
         </p>
       </article>
 
-  <article className="text-box">
-        <h2>chart</h2>
-        <canvas
-          id="myChart"
-          width="300"
-          height="300"
-          aria-label="Budget Pie Chart"
-          role="img"
-        ></canvas>
-      </article>
+      <div>
+        <h2>Charts (Pie)</h2>
+        <BudgetCharts mode="pie" />
+      </div>
 
-  <article className="text-box" id="d3js-card">
-        <h2>D3JS Chart</h2>
-        <div id="d3-chart"></div>
-      </article>
+      <div>
+        <h2>Charts (Bar)</h2>
+        <BudgetCharts mode="bar" />
+      </div>
     </section>
     </div>
   );

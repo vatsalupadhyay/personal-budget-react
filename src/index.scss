@@ -1,0 +1,34 @@
+/* Main SCSS entry - you can migrate rules here. For now we import existing CSS as a starting point */
+@import './index.css';
+
+/* You can start moving CSS into SCSS syntax below */
+
+/* BudgetCharts styles */
+.budget-charts {
+	text-align: center;
+}
+.chart-controls {
+	margin: 12px 0;
+}
+.chart-controls button {
+	margin: 0 6px;
+	padding: 6px 12px;
+	cursor: pointer;
+}
+.chart-controls button.active {
+	background: #4d5791;
+	color: #fff;
+	border-radius: 4px;
+}
+.chart-container {
+	transition: all 200ms ease;
+	display: block;
+	margin: 0 auto 12px;
+}
+.chart-container.hidden { display: none; }
+.chart-container.pie canvas { width: 100%; max-width: 420px; height: 320px; display:block; margin:0 auto; }
+.chart-container.bar { max-width: 520px; }
+.chart-container.bar.large svg { width: 100%; height: 380px; }
+.chart-container.large { max-width: 720px; }
+
+
